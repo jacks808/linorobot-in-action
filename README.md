@@ -4,8 +4,8 @@ Build a linorobot from scratch
 > This is a document project describe how to build a [linorobot](https://github.com/linorobot/linorobot) from scratch.
 
 ## Table of content
-* Introduction
-* Hardware
+* [Introduction](https://github.com/jacks808/linorobot-in-action/tree/master#introduction)
+* [Hardware](https://github.com/jacks808/linorobot-in-action/tree/master#hardware)
 * software
 * debug&test
 * FAQ
