@@ -37,3 +37,4 @@ Author of this project: jack.wang a fullstack engneree focus on software, robots
 * connecting wires:
   [Dupont Line](https://detail.tmall.com/item.htm?id=17525560371&spm=a1z09.2.0.0.56142e8dDnARXB&_u=7cvg7t6db4b&skuId=3110508296812)
 
+more supported hardware can be found [here](https://github.com/linorobot/linorobot/wiki/1.-Getting-Started#11-what-you-need)
