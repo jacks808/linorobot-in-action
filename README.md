@@ -128,3 +128,4 @@ And ros is installed:
 * Ros home page: http://ros.org
 * Respberry Help page: https://www.raspberrypi.org/help/
 * Ubiquityrobotics home page: https://ubiquityrobotics.com/
+* INTRODUCING THE TEENSY 3.5 AND 3.6: https://hackaday.com/2016/08/17/introducing-the-teensy-3-5-and-3-6/
