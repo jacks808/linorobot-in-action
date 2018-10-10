@@ -9,6 +9,7 @@ Build a linorobot from scratch
 * [Software](https://github.com/jacks808/linorobot-in-action/tree/master#software)
 * Debug&test
 * FAQ
+* Update Notes
 * [Useful links](https://github.com/jacks808/linorobot-in-action/tree/master#useful-links)
 
 ## Introduction
@@ -25,7 +26,7 @@ Author of this project: jack.wang a fullstack engneree focus on software, robots
 
 In this part, I will tell how to build hardware part about linorobot. Including Hardware  and how to assemble them together. 
 
-### Hardware list: 
+### Hardware list
 
 Here is the hardware list that I used, all of this part can be found at [Taobao](www.taobao.com) or [Amazon](www.amazon.com)
 
@@ -77,6 +78,111 @@ More supported hardware can be found [here](https://github.com/linorobot/linorob
 
 // Todo
 
+## Hardware test and driver installation
+
+In this section, I will show you how to make sure hardware works well, and install the required drivers. 
+
+### Laser sensor
+
+
+
+![https://www.slamtec.com/en/Lidar/A1Spec](https://ws2.sinaimg.cn/large/006tNbRwly1fw395sempej30bh07hdg9.jpg)
+
+<div align=center><a href="https://www.slamtec.com/en/Lidar/A1">PRLiDar A1</a></div>
+
+> `RPLIDAR A1` contains a range scanner system and a motor system. After power on
+> each sub-system, `RPLIDAR A1` start rotating and scanning clockwise. User can get
+> range scan data through the communication interface (Serial port/USB).
+>
+> Reference from [RPLiDAR datasheet](http://bucket.download.slamtec.com/8e7a1f4490a235717b43fccaf7dcae325dda7dc8/LD108_SLAMTEC_rplidar_datasheet_A1M8_v2.1_en.pdf)
+
+#### Hardware test
+
+1. Assemble `PRLiDAR A1`  with drive board .
+
+2. Find a `Micro USB-B` ![image-20181010174342181](https://ws3.sinaimg.cn/large/006tNbRwly1fw39pevz9wj302f02b3ye.jpg) Line, connect drive board to your computer
+
+3. Then LiDAR should start rotating clockwise.
+
+   <div align=center><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fw39wrwagwj30c60em40v.jpg"></div>
+
+#### Driver installation (MacOS)
+
+1. Install serial port driver
+
+   Driver installation file can be found at [CP210x USB to UART Bridge VCP Drivers](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
+
+2. Download SDK from github
+
+   ```bash
+   git clone git@github.com:Slamtec/rplidar_sdk.git
+   ```
+
+3. Complie SDK
+
+   Make sure you have `g++` installed and run: 
+
+   ```bash
+   cd rplidar_sdk_v1.9.0_1/sdk && make
+   ```
+
+   After compile, directory `output/Darwin/Release` should be generated. And you can find: 
+
+   * simple_grabber 
+
+     This demo application simply connects to an RPLIDAR device and outputs the scan data to the console.
+
+   * ultra_simple
+
+     This demo application grabs two round of scan data and shows the range data as histogram in the command line mode.
+
+4. Find USB serial:
+
+   ```bash
+   ls -l /dev/tty.*
+   ```
+
+   If you see `/dev/tty.SLAB_USBtoUART` That means driver is work:
+
+   ![image-20181010180503117](https://ws2.sinaimg.cn/large/006tNbRwly1fw3abl7agwj30k6030wf8.jpg)
+
+5. Run `simple_grabber`
+
+   In directory: `rplidar_sdk_v1.9.0_1/sdk/output/Darwin/Release`
+
+   ```bash
+   ./ultra_simple /dev/tty.SLAB_USBtoUART
+   ```
+
+   You should see something like this:
+
+   ```
+   Ultra simple LIDAR data grabber for RPLIDAR.
+   Version: 1.9.0
+   RPLIDAR S/N: 52989AF0C5E29DD2B6E39DF5D14B3116
+   Firmware Ver: 1.24
+   Hardware Rev: 5
+   RPLidar health status : 0
+   *WARN* YOU ARE USING DEPRECATED API: grabScanData(), PLEASE MOVE TO grabScanDataHq()
+   *WARN* YOU ARE USING DEPRECATED API: ascendScanData(rplidar_response_measurement_node_t*, size_t), PLEASE MOVE TO ascendScanData(rplidar_response_measurement_node_hq_t*, size_t)
+      theta: 0.55 Dist: 00898.00 Q: 47
+      theta: 1.59 Dist: 00000.00 Q: 0
+      theta: 2.14 Dist: 00000.00 Q: 0
+      theta: 2.67 Dist: 00000.00 Q: 0
+      theta: 3.22 Dist: 00000.00 Q: 0
+      theta: 3.75 Dist: 00000.00 Q: 0
+      theta: 4.30 Dist: 00000.00 Q: 0
+      theta: 4.83 Dist: 00000.00 Q: 0
+      theta: 7.00 Dist: 00000.00 Q: 0
+      theta: 7.53 Dist: 00000.00 Q: 0
+      theta: 8.08 Dist: 00000.00 Q: 0
+      theta: 8.61 Dist: 00000.00 Q: 0
+      theta: 9.16 Dist: 00000.00 Q: 0
+      theta: 9.69 Dist: 00000.00 Q: 0
+      theta: 10.23 Dist: 00000.00 Q: 0
+      theta: 10.77 Dist: 00000.00 Q: 0
+   ```
+
 ## Software
 
 In this part, I will introduce how to install ROS on Respberry Pi. After that, linorobot Installation will be shown step by step. 
@@ -117,9 +223,13 @@ And ros is installed:
 
 ![image-20181008195309767](https://ws4.sinaimg.cn/large/006tNbRwly1fw127g9kj1j30hz09ywfz.jpg)
 
+
+
 ### Linorobot Installation
 
+## Update Notes
 
+* 2018-10-10 Add `Hardware test and driver installation` include `laser sensor`
 
 ## Useful links
 
@@ -129,3 +239,6 @@ And ros is installed:
 * Respberry Help page: https://www.raspberrypi.org/help/
 * Ubiquityrobotics home page: https://ubiquityrobotics.com/
 * INTRODUCING THE TEENSY 3.5 AND 3.6: https://hackaday.com/2016/08/17/introducing-the-teensy-3-5-and-3-6/
+* PRLiDAR A1 Download page: https://www.slamtec.com/en/Support#rplidar-a1
+* PRLiDAR SDK: https://github.com/slamtec/rplidar_sdk
+* PRLiDAR ROS: https://github.com/slamtec/rplidar_ros
