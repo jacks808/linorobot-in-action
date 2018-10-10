@@ -6,6 +6,7 @@ Build a linorobot from scratch
 ## Table of content
 * [Introduction](https://github.com/jacks808/linorobot-in-action/tree/master#introduction)
 * [Hardware](https://github.com/jacks808/linorobot-in-action/tree/master#hardware)
+* [Hardware test and driver installation](https://github.com/jacks808/linorobot-in-action#hardware-test-and-driver-installation)
 * [Software](https://github.com/jacks808/linorobot-in-action/tree/master#software)
 * Debug&test
 * FAQ
