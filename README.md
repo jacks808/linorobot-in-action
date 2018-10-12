@@ -233,7 +233,7 @@ To install needed software, we need to make Respberry Pi connect to internet.
 
 On Mac OS, use `share network`  to share a internet connection to Respberry Pi is very simple. Here is the way:
 
-1. Connect Mac to a AP with internet. 
+1. Connect Mac to a AP with internet. (Note: Please Do NOT use `802.1x` wifi AP)
 
 2. Connect Respberry Pi to Mac with a network line. 
 
@@ -241,15 +241,13 @@ On Mac OS, use `share network`  to share a internet connection to Respberry Pi i
 
    ![image-20181012202610951](https://ws3.sinaimg.cn/large/006tNbRwly1fw5pn1pjxwj31140tigs4.jpg)
 
-4. Note: Please Do NOT use `802.1x` wifi AP
-
-5. Open a terminal, run: `arp -a` to find all host on same AP, find the host marked as  `bridge`
+4. Open a terminal, run: `arp -a` to find all host on same AP, find the host marked as  `bridge`
 
    ![image-20181012203237843](https://ws1.sinaimg.cn/large/006tNbRwly1fw5ptriebxj30io09faj6.jpg)
 
-6. `ssh ubuntu@192.169.2.2` 
+5. `ssh ubuntu@192.169.2.2` 
 
-7. Test network status:  `ping baidu.com`
+6. Test network status:  `ping baidu.com`
 
    ![image-20181012203603659](https://ws2.sinaimg.cn/large/006tNbRwly1fw5pxblryaj30fi03f0vu.jpg)
 
