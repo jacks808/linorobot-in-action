@@ -1,4 +1,5 @@
 # Linorobot in Action
+
 Build a linorobot from scratch
 
 > This is a document project describe how to build a [linorobot](https://github.com/linorobot/linorobot) from scratch.
@@ -226,11 +227,42 @@ And ros is installed:
 
 
 
+### Make your Respberry Pi connect to internet
+
+To install needed software, we need to make Respberry Pi connect to internet. 
+
+On Mac OS, use `share network`  to share a internet connection to Respberry Pi is very simple. Here is the way:
+
+1. Connect Mac to a AP with internet. 
+
+2. Connect Respberry Pi to Mac with a network line. 
+
+3. Open `System Settings`-> `Share `: ![image-20181012202422842](https://ws3.sinaimg.cn/large/006tNbRwly1fw5pl7i763j302g020dfv.jpg) , and config like show bellow: 
+
+   ![image-20181012202610951](https://ws3.sinaimg.cn/large/006tNbRwly1fw5pn1pjxwj31140tigs4.jpg)
+
+4. Note: Please Do NOT use `802.1x` wifi AP
+
+5. Open a terminal, run: `arp -a` to find all host on same AP, find the host marked as  `bridge`
+
+   ![image-20181012203237843](https://ws1.sinaimg.cn/large/006tNbRwly1fw5ptriebxj30io09faj6.jpg)
+
+6. `ssh ubuntu@192.169.2.2` 
+
+7. Test network status:  `ping baidu.com`
+
+   ![image-20181012203603659](https://ws2.sinaimg.cn/large/006tNbRwly1fw5pxblryaj30fi03f0vu.jpg)
+
+If everything is OK, your Respberry Pi will connect to internet. 
+
 ### Linorobot Installation
+
+// todo
 
 ## Update Notes
 
 * 2018-10-10 Add `Hardware test and driver installation` include `laser sensor`
+* 2018-10-12 Add `Make your Respberry Pi connect to internet` 
 
 ## Useful links
 
