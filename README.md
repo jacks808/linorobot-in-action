@@ -255,12 +255,61 @@ If everything is OK, your Respberry Pi will connect to internet.
 
 ### Linorobot Installation
 
-// todo
+In this section, I will show how to install linorobot on Respberry Pi. 
+
+1. Login in to your Respberry Pi: 
+
+   `ssh ubuntu@192.168.2.2`
+
+2. clone the install package:
+
+   ```bash
+   git clone https://github.com/linorobot/lino_install
+   cd lino_install
+   ```
+
+3. For Raspberry Pis it is recommended to have a swap file to prevent the initial build from failing. You can disable this once the installation is done.
+
+   ```bash
+   sudo apt-get install dphys-swapfile
+   ```
+
+4. Run install script, where base in( `2wd`, `4wd`, `ackermann`, `mecanum`) and sensor in( `xv11`, `rplidar`, `ydlidar`, `hokuyo`, `kinect`, `realsense`). I am use `2wd` base and `rplidar`, so run: 
+
+5. ```
+   ./install 2wd rplidar
+   ```
+
+   Then, you will see this:
+
+   ```bash
+   armv7l
+   
+   ______ _____________   _________ ________ _______ ________ _______  
+   ___  / ____  _/___  | / /__  __ \___  __ \__  __ \___  __ )__  __ \___  
+   __  /   __  /  __   |/ / _  / / /__  /_/ /_  / / /__  __  |_  / / /__  /
+   _  /_____/ /   _  /|  /  / /_/ / _  _, _/ / /_/ / _  /_/ / / /_/ / _  /
+   /_____//___/   /_/ |_/   \____/  /_/ |_|  \____/  /_____/  \____/  /_/
+   
+                               http://linorobot.org
+   
+   
+   You are installing ROS-kinetic Linorobot for 2wd base with a rplidar sensor. Enter [y] to continue.
+   ```
+
+   Entry `y` 
+
+6. Wait to finish, (It takes me more than 30 mins, so be patient)
+
+Some issue you maybe face: 
+
+*  `unsupported locale setting `, try [this](https://stackoverflow.com/a/36257050/1547817) 
+* `fatal error: lino_msgs/PID.h: No such file or directory`, rerun install script several times. 
 
 ## Update Notes
 
 * 2018-10-10 Add `Hardware test and driver installation` include `laser sensor`
-* 2018-10-12 Add `Make your Respberry Pi connect to internet` 
+* 2018-10-12 Add `Make your Respberry Pi connect to internet` and `Linorobot Installation`
 
 ## Useful links
 
